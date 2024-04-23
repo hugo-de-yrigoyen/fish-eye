@@ -1,7 +1,7 @@
 async function getPhotographers() {
   let photographers = [];
 
-  return fetch(window.location + "/data/photographers.json")
+  return fetch("https://hugo-de-yrigoyen.github.io/fish-eye/data/photographers.json")
     .then(function (res) {
       if (res.ok) {
         return res.json();
