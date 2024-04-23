@@ -1,7 +1,10 @@
+import {profileTemplate} from '../templates/template-profile'
+import {picturesTemplate} from '../templates/template-pictures'
+
 async function getPhotographer() {
   let photographerData = [];
 
-  return fetch("../../data/photographers.json")
+  return fetch("https://hugo-de-yrigoyen.github.io/fish-eye/data/photographers.json")
     .then(function (res) {
       if (res.ok) {
         return res.json();
@@ -11,12 +14,12 @@ async function getPhotographer() {
       const url = new URL(window.location.href);
       const id = new URLSearchParams(url.search).get("id");
 
-      for (i = 0; i < value.photographers.length; i++) {
+      for (let i = 0; i < value.photographers.length; i++) {
         if (value.photographers[i].id == id) {
           photographerData.push(value.photographers[i]);
         }
       }
-      for (i = 0; i < value.media.length; i++) {
+      for (let i = 0; i < value.media.length; i++) {
         if (value.media[i].photographerId == id) {
           photographerData.push(value.media[i]);
         }

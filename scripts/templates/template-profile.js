@@ -1,4 +1,4 @@
-function profileTemplate(data) {
+export function profileTemplate(data) {
     const { name, portrait, city, country, tagline } = data[0];
 
     const picture = `assets/photographers/${portrait}`;

@@ -1,4 +1,4 @@
-function picturesTemplate(data) {
+export function picturesTemplate(data) {
   photographData = data.shift();
 
   const section = document.createElement("section");

@@ -1,3 +1,5 @@
+import {photographersTemplate} from '../templates/template-index'
+
 async function getPhotographers() {
   let photographers = [];
 
