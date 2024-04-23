@@ -1,7 +1,7 @@
 async function getPhotographers() {
   let photographers = [];
 
-  return fetch("/data/photographers.json")
+  return fetch(window.location + "/data/photographers.json")
     .then(function (res) {
       if (res.ok) {
         return res.json();
