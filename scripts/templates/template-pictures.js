@@ -1,5 +1,5 @@
 export function picturesTemplate(data) {
-  photographData = data.shift();
+  const photographData = data.shift();
 
   const section = document.createElement("section");
   generateFiltersBlock(data, section);
@@ -235,7 +235,7 @@ function generateFixedBlock(data, section, photographData) {
   fixedBlock.className = "fixed-block";
 
   let totalLikes = 0;
-  for (i = 1; i < data.length; i++) {
+  for (let i = 1; i < data.length; i++) {
     totalLikes += data[i].likes;
   }
   const likeNumber = document.createElement("span");
