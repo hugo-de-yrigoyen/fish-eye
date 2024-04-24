@@ -1,5 +1,13 @@
 {
   "dependencies": {
     "eslint": "^9.1.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
+  },
+  "homepage": "https://hugo-de-yrigoyen.github.io/fish-eye/",
+  "scripts": {
+    "build": "npm run build",
+    "deploy": "gh-pages -d build"
   }
 }
