@@ -16,7 +16,7 @@ function closeModal() {
 }
 
 function postForm(form) {
-  inputs = form.querySelectorAll("input");
+  const inputs = form.querySelectorAll("input");
   for (let i = 0; i < inputs.length; i++) {
     console.log(inputs[i].value);
     inputs[i].value = "";

@@ -1,5 +1,5 @@
-import {profileTemplate} from '../templates/template-profile'
-import {picturesTemplate} from '../templates/template-pictures'
+import {profileTemplate} from '../templates/template-profile.js'
+import {picturesTemplate} from '../templates/template-pictures.js'
 
 async function getPhotographer() {
   let photographerData = [];
