@@ -5,7 +5,7 @@ export function photographersTemplate(data, i) {
 
     const link = document.createElement( 'a' );
     link.setAttribute("title", name);
-    link.setAttribute("href", "/photographer.html?id=" + id);
+    link.setAttribute("href", "https://hugo-de-yrigoyen.github.io/fish-eye/photographer.html?id=" + id);
     link.dataset.keyboardOrder = i;
     const article = document.createElement( 'article' );
     const img = document.createElement( 'img' );
