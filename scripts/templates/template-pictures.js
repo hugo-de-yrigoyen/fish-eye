@@ -95,19 +95,23 @@ function generatePhotos(photosContainer, photosByFilter, totalLikesText) {
     likesText.textContent = likes;
     likesText.className = "photos-container-likes";
 
-    let heart = document.createElement("img");
-    heart.src = "assets/icons/heart.svg";
-    heart.className = "photos-container-heart";
-    heart.setAttribute("alt", "likes");
-    heart.addEventListener("click", () => {
+    let heartButton = document.createElement("button");
+    heartButton.className = "button-layout";
+    heartButton.setAttribute("name", "likes");
+    heartButton.addEventListener("click", () => {
       likes += 1;
       totalLikes += 1;
       likesText.textContent = likes;
       totalLikesText.textContent = totalLikes;
     });
+    let heart = document.createElement("img");
+    heart.src = "assets/icons/heart.svg";
+    heart.className = "photos-container-heart";
+    heart.setAttribute("alt", "likes");
 
+    heartButton.appendChild(heart);
     photoLikesBlock.appendChild(likesText);
-    photoLikesBlock.appendChild(heart);
+    photoLikesBlock.appendChild(heartButton);
     photoTextLine.appendChild(titleText);
     photoTextLine.appendChild(photoLikesBlock);
     photoBlock.appendChild(mediaLink);
