@@ -133,18 +133,21 @@ function generateFiltersBlock(data, section) {
   filters.setAttribute("aria-labelledby", "filters-label");
   filters.className = "photos-filters";
   filters.id = "filters-listbox";
-  const filtersArrow = document.createElement("img");
-  filtersArrow.src = "assets/icons/arrow-top.svg";
-  filtersArrow.setAttribute("tabindex", 0);
-  filtersArrow.setAttribute("data-open", false);
-  filtersArrow.setAttribute("role", "button");
-  filtersArrow.setAttribute("aria-haspopup", "listbox");
-  filtersArrow.setAttribute("aria-expanded", "false");
-  filtersArrow.className = "photos-filters-arrow";
-  filtersArrow.addEventListener("click", function () {
+  const filtersArrowButton = document.createElement("button");
+  filtersArrowButton.className = "button-layout";
+  filtersArrowButton.setAttribute("tabindex", 0);
+  filtersArrowButton.setAttribute("data-open", false);
+  filtersArrowButton.setAttribute("role", "button");
+  filtersArrowButton.setAttribute("aria-haspopup", "listbox");
+  filtersArrowButton.setAttribute("aria-expanded", "false");
+  filtersArrowButton.addEventListener("click", function () {
     deployFilters();
   });
-  filters.appendChild(filtersArrow);
+  const filtersArrow = document.createElement("img");
+  filtersArrow.src = "assets/icons/arrow-top.svg";
+  filtersArrow.className = "photos-filters-arrow";
+  filtersArrowButton.appendChild(filtersArrow);
+  filters.appendChild(filtersArrowButton);
   generateFilters(data, section, filters);
 
   filterBlock.appendChild(filterText);
