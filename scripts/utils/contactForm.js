@@ -1,6 +1,6 @@
 function displayModal() {
   const modal = document.getElementById("contact_modal");
-  const closeButton = modal.getElementById("contact_modal_close");
+  const closeButton = document.getElementById("contact_modal_close");
   modal.style.display = "flex";
   closeButton.focus();
 
