@@ -126,8 +126,7 @@ function generateFiltersBlock(data, section) {
   const filters = document.createElement("div");
   filters.setAttribute("role", "listbox");
   filters.setAttribute("tabindex", 0);
-  filters.setAttribute("aria-activedescendant", "");
-  filters.setAttribute("aria-selected", "");
+  filters.setAttribute("aria-activedescendant", "filter-likes");
   filters.setAttribute("aria-labelledby", "filters-label");
   filters.className = "photos-filters";
   filters.id = "filters-listbox";
@@ -156,6 +155,7 @@ function generateFilters(data, section, filters) {
   filter1.setAttribute("role", "option");
   filter1.setAttribute("data-order", 1);
   filter1.setAttribute("id", "filter-likes");
+  filter1.setAttribute("aria-selected", "true");
   const filterHr1 = document.createElement("hr");
   const filter2 = document.createElement("div");
   filter2.textContent = "Date";
@@ -163,6 +163,7 @@ function generateFilters(data, section, filters) {
   filter2.setAttribute("role", "option");
   filter2.setAttribute("data-order", 2);
   filter2.setAttribute("id", "filter-date");
+  filter2.setAttribute("aria-selected", "false");
   const filterHr2 = document.createElement("hr");
   const filter3 = document.createElement("div");
   filter3.textContent = "Titre";
@@ -170,6 +171,7 @@ function generateFilters(data, section, filters) {
   filter3.setAttribute("role", "option");
   filter3.setAttribute("data-order", 3);
   filter3.setAttribute("id", "filter-title");
+  filter3.setAttribute("aria-selected", "false");
 
   filters.appendChild(filter1);
   filters.appendChild(filterHr1);
@@ -178,13 +180,13 @@ function generateFilters(data, section, filters) {
   filters.appendChild(filter3);
 
   filter1.addEventListener("click", function () {
-    filterPhotos(data, "likes", section);
+    filterPhotos(data, "likes", section, filter1);
   });
   filter2.addEventListener("click", function () {
-    filterPhotos(data, "date", section);
+    filterPhotos(data, "date", section, filter2);
   });
   filter3.addEventListener("click", function () {
-    filterPhotos(data, "title", section);
+    filterPhotos(data, "title", section, filter3);
   });
 }
 
@@ -202,8 +204,11 @@ function deployFilters() {
   }
 }
 
-function filterPhotos(data, filter, section) {
+function filterPhotos(data, filter, section, filter) {
   generatePhotosDiv(data, filter, section);
+  const filters = section.querySelector(".photos-filters");
+  filters.setAttribute("aria-selected", "false");
+  filter.setAttribute("aria-selected", "true");
 
   const filterLikes = section.querySelector("#filter-likes");
   const filterDate = section.querySelector("#filter-date");
@@ -224,7 +229,6 @@ function filterPhotos(data, filter, section) {
   }
 
   const filtersArrow = section.querySelector(".photos-filters-arrow");
-  const filters = section.querySelector(".photos-filters");
 
   filtersArrow.classList.remove("photo-filters-arrow-open");
   filters.classList.remove("photos-filters-open");
