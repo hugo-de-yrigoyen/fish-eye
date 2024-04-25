@@ -236,7 +236,7 @@ function filtersOrder(data, filterText, section, selectedFilter) {
 }
 
 function generateFixedBlock(data, section, photographData) {
-  const fixedBlock = document.createElement("div");
+  const fixedBlock = document.createElement("aside");
   fixedBlock.className = "fixed-block";
 
   let totalLikes = 0;
