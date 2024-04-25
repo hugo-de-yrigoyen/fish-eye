@@ -129,13 +129,13 @@ function generateFiltersBlock(data, section) {
   filterText.setAttribute("for", "filters-listbox");
   const filters = document.createElement("div");
   filters.setAttribute("role", "listbox");
-  filters.setAttribute("tabindex", 0);
   filters.setAttribute("aria-activedescendant", "filter-likes");
   filters.setAttribute("aria-labelledby", "filters-label");
   filters.className = "photos-filters";
   filters.id = "filters-listbox";
   const filtersArrow = document.createElement("img");
   filtersArrow.src = "assets/icons/arrow-top.svg";
+  filtersArrow.setAttribute("tabindex", 0);
   filtersArrow.setAttribute("data-open", false);
   filtersArrow.setAttribute("role", "button");
   filtersArrow.setAttribute("aria-haspopup", "listbox");
@@ -157,6 +157,7 @@ function generateFilters(data, section, filters) {
   filter1.textContent = "Popularité";
   filter1.className = "filter";
   filter1.setAttribute("role", "option");
+  filter1.setAttribute("tabindex", 0);
   filter1.setAttribute("data-order", 1);
   filter1.setAttribute("id", "filter-likes");
   filter1.setAttribute("aria-selected", "true");
@@ -165,6 +166,7 @@ function generateFilters(data, section, filters) {
   filter2.textContent = "Date";
   filter2.className = "filter";
   filter2.setAttribute("role", "option");
+  filter2.setAttribute("tabindex", 0);
   filter2.setAttribute("data-order", 2);
   filter2.setAttribute("id", "filter-date");
   filter2.setAttribute("aria-selected", "false");
@@ -173,6 +175,7 @@ function generateFilters(data, section, filters) {
   filter3.textContent = "Titre";
   filter3.className = "filter";
   filter3.setAttribute("role", "option");
+  filter3.setAttribute("tabindex", 0);
   filter3.setAttribute("data-order", 3);
   filter3.setAttribute("id", "filter-title");
   filter3.setAttribute("aria-selected", "false");
