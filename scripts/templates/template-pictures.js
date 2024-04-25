@@ -61,7 +61,7 @@ function generatePhotos(photosContainer, photosByFilter, totalLikesText) {
 
     const photographerName = document.querySelector("h1");
     let mediaLink = document.createElement("button");
-    mediaLink.type = "button"
+    mediaLink.type = "button";
     mediaLink.className = "button-layout";
     mediaLink.setAttribute("name", title + ", closeup view");
     mediaLink.addEventListener("click", function () {
@@ -317,6 +317,39 @@ function generateModal(photoBlock, photosByFilter, i) {
     }
     generateModalContent(photosByFilter[i], modalPicture, modalTitle);
   });
+
+  document.onkeydown = function (e) {
+    switch (e.keyCode) {
+      case 37:
+        //left arrow
+        i += 1;
+        if (i >= photosByFilter.length) {
+          i = 0;
+        }
+        if (JSON.stringify(photosByFilter[i]).includes("video")) {
+          i += 1;
+          if (i >= photosByFilter.length) {
+            i = 0;
+          }
+        }
+        generateModalContent(photosByFilter[i], modalPicture, modalTitle);
+        break;
+      case 39:
+        //right arrow
+        i -= 1;
+        if (i < 0) {
+          i = photosByFilter.length - 1;
+        }
+        if (JSON.stringify(photosByFilter[i]).includes("video")) {
+          i -= 1;
+          if (i < 0) {
+            i = photosByFilter.length - 1;
+          }
+        }
+        generateModalContent(photosByFilter[i], modalPicture, modalTitle);
+        break;
+    }
+  };
 
   let modalRightArrow = document.createElement("img");
   modalRightArrow.src = "assets/icons/modal-arrow.svg";
