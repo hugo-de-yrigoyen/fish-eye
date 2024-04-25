@@ -204,21 +204,21 @@ function deployFilters() {
   }
 }
 
-function filterPhotos(data, filter, section, filter) {
-  generatePhotosDiv(data, filter, section);
+function filterPhotos(data, filterText, section, selectedFilter) {
+  generatePhotosDiv(data, filterText, section);
   const filters = section.querySelector(".photos-filters");
   filters.setAttribute("aria-selected", "false");
-  filter.setAttribute("aria-selected", "true");
+  selectedFilter.setAttribute("aria-selected", "true");
 
   const filterLikes = section.querySelector("#filter-likes");
   const filterDate = section.querySelector("#filter-date");
   const filterTitle = section.querySelector("#filter-title");
 
-  if (filter == "likes") {
+  if (filterText == "likes") {
     filterLikes.dataset.order = 1;
     filterDate.dataset.order = 2;
     filterTitle.dataset.order = 3;
-  } else if (filter == "date") {
+  } else if (filterText == "date") {
     filterLikes.dataset.order = 2;
     filterDate.dataset.order = 1;
     filterTitle.dataset.order = 3;
