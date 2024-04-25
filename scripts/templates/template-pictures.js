@@ -125,6 +125,7 @@ function generateFiltersBlock(data, section) {
   filterText.setAttribute("for", "filters-listbox");
   const filters = document.createElement("div");
   filters.setAttribute("role", "listbox");
+  filters.setAttribute("tabindex", 0);
   filters.setAttribute("aria-activedescendant", "");
   filters.setAttribute("aria-selected", "");
   filters.setAttribute("aria-labelledby", "filters-label");
