@@ -180,13 +180,13 @@ function generateFilters(data, section, filters) {
   filters.appendChild(filter3);
 
   filter1.addEventListener("click", function () {
-    filterPhotos(data, "likes", section, filter1);
+    filtersOrder(data, "likes", section, filter1);
   });
   filter2.addEventListener("click", function () {
-    filterPhotos(data, "date", section, filter2);
+    filtersOrder(data, "date", section, filter2);
   });
   filter3.addEventListener("click", function () {
-    filterPhotos(data, "title", section, filter3);
+    filtersOrder(data, "title", section, filter3);
   });
 }
 
@@ -204,7 +204,7 @@ function deployFilters() {
   }
 }
 
-function filterPhotos(data, filterText, section, selectedFilter) {
+function filtersOrder(data, filterText, section, selectedFilter) {
   generatePhotosDiv(data, filterText, section);
   const filters = section.querySelector(".photos-filters");
   filters.setAttribute("aria-selected", "false");
